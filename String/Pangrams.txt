@@ -1,0 +1,49 @@
+https://www.hackerrank.com/challenges/pangrams/problem
+
+Roy 想要提高他编程比赛的打字速度，所以，他的朋友建议他反复输入这个句子：“The quick brown fox jumps over the lazy dog”，因为这个句子是全字母短句，（全字母短句中每个字母都出现至少一次）。
+
+在输入这个句子很多次之后，Roy 觉得很无聊，所以他开始寻找其它的全字母短句。
+
+给定一个句子 , 告诉 Roy 这个句子是不是一个全字母短句。
+
+输入格式
+
+输入只有一行，包含.
+
+数据约束
+
+ 的长度最多   
+它可能包括空格，小写字母及大写字母。小写字母跟大写字母可以当成同一个字母。
+
+输出格式
+
+如果  是全字母短句， 输出 pangram 
+否则，输出 not pangram.
+
+样例输入 #1
+
+We promptly judged antique ivory buckles for the next prize    
+样例输出 #1
+
+pangram
+样例输入 #2
+
+We promptly judged antique ivory buckles for the prize    
+样例输出 #2
+
+not pangram
+
+
+
+process.stdin.on("end", function () {
+    var map = {};
+    var sum = 0;
+    for(let i = 0; i < input.length; i ++){
+        var value = input[i].toLowerCase();
+        if(value === " ") continue;
+        if(map[value] !== undefined) continue;
+        map[value] = 1;
+        sum ++;
+    }
+    console.log(sum === 26 ? "pangram" : "not pangram");
+});
