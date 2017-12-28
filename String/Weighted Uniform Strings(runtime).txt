@@ -1,0 +1,33 @@
+https://www.hackerrank.com/challenges/weighted-uniform-string/problem
+
+
+
+function main() {
+    var s = readLine();
+    var n = parseInt(readLine());
+    for(var a0 = 0; a0 < n; a0++){
+        var x = parseInt(readLine());
+        var set = new Set();
+        var i = 0;
+        var prev;
+        var prev_c;
+        while(i < s.length){
+            var code = s.charCodeAt(i) - 96;
+            if(s[i] === prev){
+                prev_c += code;
+                prev = s[i];
+                set.add(prev_c);                
+            }
+            else {
+                set.add(code);
+                prev = s[i];
+                prev_c = code;
+            }
+            i ++;
+        }
+        //console.log(s)
+        if(set.has(x)) console.log("Yes");
+        else console.log("No");
+    }
+
+}
