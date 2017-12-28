@@ -28,8 +28,8 @@ function insertionSort2(n, arr) {
 
 function insert(n, arr) {
     var e = arr[n - 1];
-    if(e >= arr[n - 2]) return arr;    
-    for(let i = n - 1; i >= 0; i --){
+    if(e >= arr[n - 2]) return arr;//判断是否本来就是有序的
+    for(let i = n - 1; i >= 0; i --){
         arr[i] = arr[i - 1];
         if(i === 0){
             arr[0] = e;
