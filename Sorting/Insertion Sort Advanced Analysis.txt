@@ -1,0 +1,40 @@
+https://www.hackerrank.com/challenges/insertion-sort/problem
+
+Sample Input
+
+2  
+5  
+1 1 1 2 2  
+5  
+2 1 3 1 2
+
+Sample Output
+
+0  
+4 
+
+
+
+
+function insertionSort(arr, n) {
+    var count = 0;
+    for(let i = 1; i < n; i++){
+        if(arr[i] >= arr[i - 1]) continue;
+        else {
+            var temp = arr[i];
+            for(let j = i - 1; j >= 0; j --){
+                arr[j + 1] = arr[j];
+                if(j === 0){
+                    arr[0] = temp;
+                    count += i;
+                }
+                else if(temp <= arr[i] && temp >= arr[j - 1]){
+                    arr[j] = temp;
+                    count += i - j;
+                    break;
+                }
+            }
+        }
+    }
+    return count; 
+}//Insertion Sort, runtime out
