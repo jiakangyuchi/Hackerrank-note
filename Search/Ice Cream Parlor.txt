@@ -1,0 +1,28 @@
+https://www.hackerrank.com/challenges/icecream-parlor/problem
+
+Sample Input
+
+2
+4
+5
+1 4 5 3 2
+4
+4
+2 2 4 3
+
+Sample Output
+
+1 4
+1 2
+
+function icecreamParlor(m, arr, n) {
+    var res = [];
+    for(let i = 0; i < n - 1; i ++){
+        for(let j = i + 1; j < n; j ++){
+            if((arr[i] + arr[j]) === m){
+                res.push(i + 1, j + 1);
+                return res;
+            }
+        }
+    }
+}
