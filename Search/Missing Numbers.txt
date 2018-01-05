@@ -1,0 +1,48 @@
+https://www.hackerrank.com/challenges/missing-numbers/problem
+
+Sample Input
+
+10
+203 204 205 206 207 208 203 204 205 206
+13
+203 204 204 205 206 207 205 208 203 206 205 206 204
+
+Sample Output
+
+204 205 206
+
+
+
+
+//Solution 1, Hashmap
+function missingNumbers(arr, brr, n, m) {
+    var map = {};
+    var set = new Set();
+    for(let i = 0; i < n; i ++){
+        map[arr[i]] = (map[arr[i]] || 0) + 1;
+    }
+    for(let i = 0; i < m; i ++){
+        if(map[brr[i]] === undefined || map[brr[i]] === 0){
+            set.add(brr[i]);
+            continue;
+        }
+        else map[brr[i]] --;
+    }
+    return Array.from(set).sort((a, b) => a - b);
+}
+
+//solution 2, create an all-zero array
+function missingNumbers(arr, brr, n, m) {
+    var temp = new Array(20001).fill(0);
+    var res = [];
+    for(let i = 0; i < m; i ++){
+        temp[brr[i]] ++;
+    }
+    for(let i = 0; i < n; i ++){
+        temp[arr[i]] --;
+    }
+    for(let i = 0; i < 20001; i ++){
+        if(temp[i] > 0) res.push(i);
+    }
+    return res;
+}
