@@ -42,4 +42,4 @@ function solve(a, n){
     }
     if(cur_i === cur_j) return "YES";
     else return "NO";
-}//Two-Pointer, 
+}//Two-Pointer
