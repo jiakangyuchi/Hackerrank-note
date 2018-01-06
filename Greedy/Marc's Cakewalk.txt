@@ -1,0 +1,22 @@
+
+https://www.hackerrank.com/challenges/marcs-cakewalk/problem
+
+Sample Input 0
+
+3
+1 3 2
+
+Sample Output 0
+
+11
+
+
+
+function marcsCakewalk(calorie, n) {
+    var res = 0;
+    calorie.sort((a, b) => b - a);
+    for(let i = 0; i < n; i ++){
+        res += calorie[i] * Math.pow(2, i);
+    }
+    return res;
+}
